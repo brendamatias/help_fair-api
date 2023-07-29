@@ -11,6 +11,7 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
   APP_ORIGIN: z.string(),
   PORT: z.coerce.number().default(3333),
+  MONGO_URL: z.string(),
 });
 
 export const _env = envSchema.safeParse(process.env);
