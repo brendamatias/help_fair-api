@@ -1,0 +1,9 @@
+# Dependencies
+node_modules
+
+build
+
+# Environment
+.env
+.env.test
+.vercel
