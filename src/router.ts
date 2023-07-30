@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import FairController from './app/controllers/FairController';
+import FairProductController from './app/controllers/FairProductController';
 
 const router: Router = Router();
 
@@ -10,5 +11,9 @@ router.get('/', (req, res) => {
 
 router.get('/fairs', FairController.index);
 router.post('/fairs', FairController.store);
+router.get('/fairs/:id', FairController.show);
+router.get('/fairs/:fairId/products', FairProductController.index);
+router.put('/fairs/:fairId/products/:id', FairProductController.update);
+router.post('/fairs/:fairId/products', FairProductController.store);
 
 export default router;
