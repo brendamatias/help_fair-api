@@ -1,8 +1,8 @@
-import response from '@/config/response';
-import Product from '@/models/Product';
-import FairProduct from '@/models/FairProduct';
-import { ApiError } from '@/exceptions';
-import { errors } from '@/exceptions/errors';
+import response from '../../config/response';
+import Product from '../../models/Product';
+import FairProduct from '../../models/FairProduct';
+import { ApiError } from '../../exceptions';
+import { errors } from '../../exceptions/errors';
 
 type CreateProductRequest = {
   name: string;

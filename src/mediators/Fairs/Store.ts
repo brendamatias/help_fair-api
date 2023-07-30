@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongodb';
-import response from '@/config/response';
-import { ApiError } from '@/exceptions';
-import { errors } from '@/exceptions/errors';
-import Fair from '@/models/Fair';
-import FairProduct from '@/models/FairProduct';
+import response from '../../config/response';
+import { ApiError } from '../../exceptions';
+import { errors } from '../../exceptions/errors';
+import Fair from '../../models/Fair';
+import FairProduct from '../../models/FairProduct';
 
 type CreateFairRequest = {
   name: string;

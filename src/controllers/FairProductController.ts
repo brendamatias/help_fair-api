@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import mediator from '@/mediators/FairProducts';
+import mediator from '../mediators/FairProducts';
 
 const FairProductController = {
   async index(request: Request, response: Response, next: NextFunction) {

@@ -1,5 +1,5 @@
-import response from '@/config/response';
-import FairProduct from '@/models/FairProduct';
+import response from '../../config/response';
+import FairProduct from '../../models/FairProduct';
 
 type UpdateProductRequest = {
   id: string;
