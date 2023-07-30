@@ -16,7 +16,7 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       },
       "typescript": {}
-    },
+    }
   },
   "rules": {
     "no-underscore-dangle": "off",
@@ -25,6 +25,7 @@
     "@typescript-eslint/no-unused-vars": "error",
     "no-unused-vars": "off",
     "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

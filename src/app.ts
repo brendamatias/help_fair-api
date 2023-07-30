@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import { env } from './env';
 import router from './router';
+import handleError from './middlewares/handleError';
 
 class App {
   public server: Application;
@@ -11,6 +12,8 @@ class App {
     this.server = express();
     this.middleware();
     this.router();
+
+    this.server.use(handleError);
   }
 
   private middleware() {
