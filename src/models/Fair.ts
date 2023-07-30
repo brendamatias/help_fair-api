@@ -2,6 +2,7 @@ import { Schema, model, Document } from 'mongoose';
 
 export interface IFair extends Document {
   name: string;
+  status: 'IN_PROGRESS' | 'FINISHED';
   createdAt: Date;
   updatedAt: Date;
 }
@@ -10,6 +11,11 @@ const FairSchema = new Schema({
   name: {
     type: String,
     required: true,
+  },
+  status: {
+    type: String,
+    enum: ['IN_PROGRESS', 'FINISHED'],
+    default: 'IN_PROGRESS',
   },
   createdAt: {
     type: Date,
