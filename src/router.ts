@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import FairController from './app/controllers/FairController';
-import FairProductController from './app/controllers/FairProductController';
-import ProductController from './app/controllers/ProductController';
+import FairController from './controllers/FairController';
+import FairProductController from './controllers/FairProductController';
+import ProductController from './controllers/ProductController';
 
 const router: Router = Router();
 
