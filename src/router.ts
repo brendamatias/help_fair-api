@@ -16,6 +16,7 @@ router.get('/fairs/:id', FairController.show);
 router.get('/fairs/:fairId/products', FairProductController.index);
 router.put('/fairs/:fairId/products/:id', FairProductController.update);
 router.post('/fairs/:fairId/products', FairProductController.store);
+router.delete('/fairs/:fairId/products/:id', FairProductController.delete);
 router.get('/products', ProductController.index);
 
 export default router;
