@@ -10,6 +10,7 @@ if (process.env.NODE_ENV === 'test') {
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
   APP_ORIGIN: z.string(),
+  APP_SECRET: z.string(),
   PORT: z.coerce.number().default(3333),
   MONGO_URL: z.string(),
 });
