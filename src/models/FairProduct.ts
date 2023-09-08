@@ -5,6 +5,8 @@ export interface IFairProduct extends Document {
   price: number;
   qty: number;
   bought: boolean;
+  measure: 'unit' | 'liter' | 'kilo';
+  category: 'fruit' | 'bakery' | 'vegetable' | 'drink' | 'meat';
   fair: Schema.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
@@ -26,6 +28,14 @@ const FairProductSchema = new Schema({
   bought: {
     type: Boolean,
     default: false,
+  },
+  measure: {
+    type: String,
+    enum: ['unit', 'liter', 'kilo'],
+  },
+  category: {
+    type: String,
+    enum: ['fruit', 'bakery', 'vegetable', 'drink', 'meat'],
   },
   fair: {
     type: Schema.Types.ObjectId,

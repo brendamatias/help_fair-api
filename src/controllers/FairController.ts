@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from 'express';
 import mediator from '../mediators/Fairs';
 
 const FairController = {
-  async index(_: Request, response: Response, next: NextFunction) {
+  async index(request: Request, response: Response, next: NextFunction) {
     try {
-      const { status, data } = await mediator.All();
+      const { status, data } = await mediator.All(request.userId);
 
       return response.status(status).json(data);
     } catch (err) {
@@ -24,7 +24,7 @@ const FairController = {
 
   async store(request: Request, response: Response, next: NextFunction) {
     try {
-      const { status, data } = await mediator.Store(request.body);
+      const { status, data } = await mediator.Store({ ...request.body, userId: request.userId });
 
       return response.status(status).json(data);
     } catch (err) {

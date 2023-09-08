@@ -8,14 +8,15 @@ import FairProduct from '../../models/FairProduct';
 type CreateFairRequest = {
   name: string;
   template: string;
+  userId: string;
 };
 
-export default async ({ name, template }: CreateFairRequest) => {
-  const fairExist = await Fair.findOne({ name }).exec();
+export default async ({ name, template, userId }: CreateFairRequest) => {
+  const fairExist = await Fair.findOne({ name, userId }).exec();
 
   if (fairExist) throw new ApiError(errors.FAIR_ALREADY_CREATED);
 
-  const fair = await Fair.create({ name });
+  const fair = await Fair.create({ name, userId });
   const fairProducts = await FairProduct.find({ fair: new ObjectId(template) }).exec();
 
   const fairProductsFormatted = fairProducts.map((item) => ({
@@ -30,5 +31,5 @@ export default async ({ name, template }: CreateFairRequest) => {
     await FairProduct.insertMany(fairProductsFormatted);
   }
 
-  return response.created('fair');
+  return response.created(fair);
 };

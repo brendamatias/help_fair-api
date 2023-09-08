@@ -5,6 +5,10 @@ export const errors = {
   },
   FAIR_NOT_FOUND: {
     status: 404,
+    message: 'Feira não encontrada',
+  },
+  FAIR_PRODUCT_NOT_FOUND: {
+    status: 404,
     message: 'Produto não encontrado',
   },
   FAIR_ALREADY_CREATED: {

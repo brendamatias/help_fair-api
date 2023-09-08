@@ -5,7 +5,7 @@ import { ApiError } from '../../exceptions';
 
 export default async (id: string) => {
   const fairProductExists = await FairProduct.findById(id).exec();
-  if (!fairProductExists) throw new ApiError(errors.FAIR_NOT_FOUND);
+  if (!fairProductExists) throw new ApiError(errors.FAIR_PRODUCT_NOT_FOUND);
 
   await fairProductExists.deleteOne();
 
