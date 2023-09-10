@@ -4,6 +4,7 @@ export interface IFair extends Document {
   name: string;
   status: 'IN_PROGRESS' | 'FINISHED';
   userId: Schema.Types.ObjectId;
+  active: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -21,6 +22,10 @@ const FairSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
+  },
+  active: {
+    type: Boolean,
+    default: true,
   },
   createdAt: {
     type: Date,

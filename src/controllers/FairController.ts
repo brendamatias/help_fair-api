@@ -31,6 +31,16 @@ const FairController = {
       return next(err);
     }
   },
+
+  async delete(request: Request, response: Response, next: NextFunction) {
+    try {
+      const { status, data } = await mediator.Delete(request.params.id, request.userId);
+
+      return response.status(status).json(data);
+    } catch (err) {
+      return next(err);
+    }
+  },
 };
 
 export default FairController;

@@ -22,6 +22,7 @@ router.use(authMiddleware);
 router.get('/fairs', FairController.index);
 router.post('/fairs', FairController.store);
 router.get('/fairs/:id', FairController.show);
+router.delete('/fairs/:id', FairController.delete);
 
 router.get('/fairs/:fairId/products', FairProductController.index);
 router.put('/fairs/:fairId/products/:id', FairProductController.update);
