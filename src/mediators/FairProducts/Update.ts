@@ -1,5 +1,5 @@
 import response from '../../config/response';
-import FairProduct from '../../models/FairProduct';
+import FairProduct, { Category, Measure } from '../../models/FairProduct';
 
 type UpdateProductRequest = {
   id: string;
@@ -7,10 +7,16 @@ type UpdateProductRequest = {
   price?: number;
   qty?: number;
   bought?: boolean;
+  measure: Measure;
+  category: Category;
 };
 
-export default async ({ id, name, price, qty, bought }: UpdateProductRequest) => {
-  const product = await FairProduct.findByIdAndUpdate(id, { name, price, qty, bought }, { new: true }).exec();
+export default async ({ id, name, price, qty, bought, measure, category }: UpdateProductRequest) => {
+  const product = await FairProduct.findByIdAndUpdate(
+    id,
+    { name, price, qty, bought, measure, category },
+    { new: true }
+  ).exec();
 
   return response.success(product);
 };
