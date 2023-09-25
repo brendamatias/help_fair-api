@@ -1,12 +1,15 @@
 import { Schema, model, Document } from 'mongoose';
 
+export type Measure = 'unit' | 'liter' | 'kilo';
+export type Category = 'fruit' | 'bakery' | 'vegetable' | 'drink' | 'meat';
+
 export interface IFairProduct extends Document {
   name: string;
   price: number;
   qty: number;
   bought: boolean;
-  measure: 'unit' | 'liter' | 'kilo';
-  category: 'fruit' | 'bakery' | 'vegetable' | 'drink' | 'meat';
+  measure: Measure;
+  category: Category;
   fair: Schema.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
