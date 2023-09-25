@@ -12,7 +12,7 @@ type CreateFairRequest = {
 };
 
 export default async ({ name, template, userId }: CreateFairRequest) => {
-  const fairExist = await Fair.findOne({ name, userId }).exec();
+  const fairExist = await Fair.findOne({ name, userId, active: true }).exec();
 
   if (fairExist) throw new ApiError(errors.FAIR_ALREADY_CREATED);
 
@@ -25,6 +25,8 @@ export default async ({ name, template, userId }: CreateFairRequest) => {
     fair: fair._id,
     qty: 0,
     bought: false,
+    measure: item.measure,
+    category: item.category,
   }));
 
   if (template) {
