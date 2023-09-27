@@ -25,8 +25,8 @@ export default async ({ name, template, userId }: CreateFairRequest) => {
     fair: fair._id,
     qty: 0,
     bought: false,
-    measure: item.measure,
-    category: item.category,
+    measure: 'un',
+    category: 'unknown',
   }));
 
   if (template) {

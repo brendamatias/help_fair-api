@@ -1,7 +1,7 @@
 import { Schema, model, Document } from 'mongoose';
 
-export type Measure = 'unit' | 'liter' | 'kilo';
-export type Category = 'fruit' | 'bakery' | 'vegetable' | 'drink' | 'meat';
+export type Measure = 'un' | 'l' | 'kg';
+export type Category = 'fruit' | 'bakery' | 'vegetable' | 'drink' | 'meat' | 'unknown';
 
 export interface IFairProduct extends Document {
   name: string;
@@ -34,11 +34,12 @@ const FairProductSchema = new Schema({
   },
   measure: {
     type: String,
-    enum: ['unit', 'liter', 'kilo'],
+    enum: ['un', 'l', 'kg'],
   },
   category: {
     type: String,
-    enum: ['fruit', 'bakery', 'vegetable', 'drink', 'meat'],
+    enum: ['fruit', 'bakery', 'vegetable', 'drink', 'meat', 'unknown'],
+    default: 'unknown',
   },
   fair: {
     type: Schema.Types.ObjectId,

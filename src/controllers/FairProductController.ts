@@ -36,6 +36,16 @@ const FairProductController = {
     }
   },
 
+  async readNF(request: Request, response: Response, next: NextFunction) {
+    try {
+      const { status, data } = await mediator.ReadNF({ ...request.body, fair: request.params.fairId });
+
+      return response.status(status).json(data);
+    } catch (err) {
+      return next(err);
+    }
+  },
+
   async delete(request: Request, response: Response, next: NextFunction) {
     try {
       const { status, data } = await mediator.Delete(request.params.id);
